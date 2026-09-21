@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_practice/dialog.dart';
+import 'package:getx_practice/bottom_sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dialog',
+      title: 'Bottom Sheet',
 
-      home: const CustomDialogWidget(),
+      home: const CustomBottomSheet(),
     );
   }
 }
