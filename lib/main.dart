@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_practice/home_screen.dart';
-import 'package:getx_practice/next_screen.dart';
-import 'package:getx_practice/unknown_route.dart';
+import 'package:getx_practice/state_managment.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,12 +35,7 @@ class MyApp extends StatelessWidget {
 
       initialRoute: '/x',
 
-      getPages: [
-        GetPage(name: '/home', page: () => HomeScreen()),
-        GetPage(name: '/nextScreen/:someValue', page: () => NextScreen()),
-      ],
-
-      unknownRoute: GetPage(name: '/notFound', page: () => UnknownRoute()),
+     home: StateMangmentScreen(),
     );
   }
 }
