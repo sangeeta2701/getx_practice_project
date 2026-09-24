@@ -1,4 +1,4 @@
-import 'package:get/state_manager.dart';
+// import 'package:get/state_manager.dart';
 
 class Student{
 
@@ -6,12 +6,12 @@ class Student{
   // by making the entire calss observable. 
 
   //individual variables Rx
-  var name = "Tom".obs;
-  var age = 25.obs;
+  // var name = "Tom".obs;
+  // var age = 25.obs;
 
 
   //to make the entire class observable
-  // var name;
-  // var age;
-  // Student({this.name, this.age});
+  var name;
+  var age;
+  Student({this.name, this.age});
 }
