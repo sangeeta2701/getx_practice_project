@@ -5,11 +5,9 @@ import 'package:getx_practice/my_controller.dart';
 // ignore: must_be_immutable
 class StateMangmentScreen extends StatelessWidget {
   StateMangmentScreen({super.key});
-  // var student = Student();
-
-  //for making the entire class observable
-  // final student = Student(name: "tom", age: 25).obs;
   
+  //if init property is not used in GetX<Type of Controller> then
+  //create this instance of controller as follows
 MyController myController = Get.put(MyController());
   @override
   Widget build(BuildContext context) {
@@ -22,13 +20,19 @@ MyController myController = Get.put(MyController());
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(()=> Text("Name is:  ${myController.student.value.name}", style: TextStyle(fontSize: 25),)),
-            SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){
-            
-           myController.convertToUpperCase();
+            GetX<MyController>(
+              // init: MyController(),
+              builder: (controller){
+                // return Text("The value is ${controller.count.value}", style: TextStyle(fontSize: 25),);
+                return Text("The value is ${myController.count}", style: TextStyle(fontSize: 25),);
+              }),
+              SizedBox(height:20),
+              ElevatedButton(onPressed: (){
+                //if instance of controller is not called at top
+                // Get.find<MyController>().incremnet(); 
 
-            }, child: Text("Upper")),
+                myController.incremnet();
+              }, child: Text("Increment"))
           ],
         ),
       ),
