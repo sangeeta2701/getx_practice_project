@@ -17,12 +17,30 @@ import 'package:get/get.dart';
 // } 
 
 
-//simple state management without using anything reactive
+//simple state management without using anything reactive to use lifecycle methods 
 class MyController extends GetxController {
   var count= 0;
-  void incremnet(){
+  void incremnet()async{
+    await Future<int>.delayed(Duration(seconds: 5));
     count++;
     update(); //will update the count variable on UI which use it
+  }
+
+  void cleanUpTask(){
+    print("Cleanup task");
+  }
+
+  @override
+  void onInit() {
+    print("Init Called");
+    super.onInit();
+    incremnet();
+  }
+
+  @override
+  void onClose() {
+    cleanUpTask();
+    super.onClose();
   }
 
 }
